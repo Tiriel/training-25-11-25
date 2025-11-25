@@ -1,8 +1,8 @@
 # SensioLabs Master Training
 ## Training project installation
 
-* Clone the repository using `git clone https://github.com/Tiriel/training-17-11-25.git`
-* `cd training-17-11-25` to get into the newly created folder
+* Clone the repository using `git clone https://github.com/Tiriel/training-25-11-25.git`
+* `cd training-25-11-25` to get into the newly created folder
 * `symfony composer install` to install the dependencies
 * `symfony console secret:set ADMIN_PWD` to create the missing env var, then enter the desired value
 * `symfony console doctrine:database:create` to initialize the database
