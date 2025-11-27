@@ -5,7 +5,7 @@
 {% block body %}
     <section id="list-conferences">
         <div class="container">
-            <turbo-frame id="conference-list">
+            <twig:Turbo:Frame id="conference-list">
                 <div class="row">
                     <div class="col-md-10 m-auto">
                         <h1 class="fw-bolder" style="color: limegreen;">List all conferences</h1>
@@ -15,7 +15,7 @@
                                                         :toDate="to_date"></twig:Conference:ConferenceList>
                     </div>
                 </div>
-            </turbo-frame>
+            </twig:Turbo:Frame>
             <twig:Conference:ConferenceCounter></twig:Conference:ConferenceCounter>
         </div>
     </section>
