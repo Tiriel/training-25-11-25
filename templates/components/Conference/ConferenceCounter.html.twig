@@ -1,0 +1,9 @@
+<div class="card" {{ attributes }}>
+    <div class="card-body text-center">
+        <div class="display-4 text-primary">{{ selectionCount }}</div>
+        <p class="card-text"> Times selected</p>
+        {% if conference is not null %}
+            <p>Conference: {{ conference.name }}</p>
+        {% endif %}
+    </div>
+</div>

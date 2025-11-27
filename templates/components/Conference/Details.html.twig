@@ -1,0 +1,30 @@
+{% props conference = null %}
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="card-title">
+            <h1 class="fw-bold" style="color: limegreen;">{{ conference.name }}</h1>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between mt-4">
+                <div>
+                    <p>From <span
+                            class="fw-semibold">{{ conference.startAt|date('d/m/y') }}</span> to
+                        <span class="fw-semibold">{{ conference.endAt|date('d/m/y') }}</span></p>
+                    <p class="my-0">Organizations: {{ conference.organizations|map(o => o.name)|join(', ') }}</p>
+                    <p>Accessible
+                        : {{ conference.accessible ? '<span style="color: limegreen;">Yes</span>' : '<span style="color: red;">No</span>' }}</p>
+                </div>
+                <p class="fst-italic">{{ conference.volunteerings.count }} volunteers yet.</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <p class="text-muted">{{ conference.prerequisites }}</p>
+            <p class="">{{ conference.description }}</p>
+        </li>
+        <li class="list-group-item">
+            <twig:Conference:ConferencePoll :conference="conference" :poll="conference.poll"></twig:Conference:ConferencePoll>
+        </li>
+    </ul>
+</div>

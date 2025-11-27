@@ -4,11 +4,13 @@ namespace App\Twig\Components\Conference;
 
 use App\Entity\Conference;
 use App\Entity\Poll;
+use App\Entity\Vote;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
+use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
@@ -40,5 +42,20 @@ final class ConferencePoll
                 'id' => $this->conference->getId()
             ])
         );
+    }
+
+    #[LiveAction]
+    public function vote(#[LiveArg] string $name, EntityManagerInterface $manager): void
+    {
+        $vote = $this->poll->getVotes()->findFirst(fn($key, Vote $vote) => $vote->getName() === $name);
+        $vote->upCount();
+
+        $manager->persist($vote);
+        $manager->flush();
+
+        $this->messages[] = [
+            'type' => 'success',
+            'message' => 'Thank you for voting!',
+        ];
     }
 }

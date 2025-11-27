@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col-md-10 m-auto">
                 <h1 class="fw-bolder" style="color: limegreen;">List all conferences</h1>
+                <twig:Conference:ConferenceCounter></twig:Conference:ConferenceCounter>
                 <twig:Conference:ListFilterForm :fromDate="from_date" :toDate="to_date"></twig:Conference:ListFilterForm>
                 <twig:Conference:ConferenceList :fromDate="from_date" :toDate="to_date"></twig:Conference:ConferenceList>
             </div>
