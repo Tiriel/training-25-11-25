@@ -4,10 +4,12 @@
 
 {% block body %}
     <section class="container row row-cols-1">
-        <div class="col-md-8 mx-auto">
-            <h1>Volunteer on a Conference</h1>
-        </div>
+        <turbo-frame id="conference-list">
+            <div class="col-md-8 mx-auto">
+                <h1>Volunteer on a Conference</h1>
+            </div>
 
-        {{ include('includes/_form.html.twig', {button_label: 'Save'}) }}
+            {{ include('includes/_form.html.twig', {button_label: 'Save'}) }}
+        </turbo-frame>
     </section>
 {% endblock %}

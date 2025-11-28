@@ -38,7 +38,7 @@ class VolunteeringType extends AbstractType
                 'data_class' => Volunteering::class,
                 'conference' => null,
             ])
-            ->setAllowedTypes('conference', Conference::class)
+            ->setAllowedTypes('conference', ['null', Conference::class])
         ;
     }
 }
